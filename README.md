@@ -1,2 +1,8 @@
 # py-menger
-Display fractal sponge menger
+Displays  fractal sponge menger
+
+``` usage
+menger.py [-h]
+menger.py [-v]
+menger.py [-i <iterations>] [-u <unity>] [-l <length>]
+```
