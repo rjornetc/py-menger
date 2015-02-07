@@ -3,10 +3,18 @@
 
 __author__ = 'Raúl Jornet Calomarde'
 __contact__ = 'rjornetc@openmailbox.org'
-__copyright__ = "Copyright © 2015, Raúl Jornet Calomarde"
-__license__ = "License GPLv3+: GNU GPL version 3 or any later\nThis program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or any later version.\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n<http://www.gnu.org/licenses/>"
-__date__ = "06/02/2015"
-__version__ = "1.3.0"
+__copyright__ = 'Copyright © 2015, Raúl Jornet Calomarde'
+__license__ = '''License GPLv3+: GNU GPL version 3 or any later
+This program isfree software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation, either version 3 of the License, or any later
+version. This program is distributed  in the hope that it will be
+useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+Public License for more details.
+<http://www.gnu.org/licenses/>'''
+__date__ = '06/02/2015'
+__version__ = '1.3.1'
 
 import sys, getopt
 
@@ -41,27 +49,35 @@ def print_sponge(unity, iterations, unity_length):
 
 if __name__ == '__main__':
 
-  iterations = 1
-  unity = '█▊'
-  unity_length = 2
+    iterations = 1
+    unity = '█▊'
+    unity_length = 2
 
-  try:
-      opts, args = getopt.getopt(sys.argv[1:],'hvi:u:l:',['help','version','iterations=','unity=','length='])
-  except getopt.GetoptError:
-      print 'menger.py [-h] [-v] [-i <iterations>] [-u <unity>] [-l <length>]'
-      sys.exit(2)
-  for opt, arg in opts:
-      if opt in ('-h', '--help'):
-          print 'menger.py [-h] [-v] [-i <iterations>] [-u <unity>] [-l <length>]'
-          sys.exit()
-      elif opt in ('-v', '--version'):
-          print ('py-menger ' + __version__ + '\n' + __copyright__ + '\n' + __license__)
-          sys.exit()
-      elif opt in ('-i', '--iterations'):
-          iterations = int(arg)
-      elif opt in ('-u', '--unity'):
-          unity = str(arg)
-      elif opt in ('-l', '--length'):
-          unity_length = int(arg)
-      
-  print_sponge(unity, iterations, unity_length)
+    try:
+        opts, args = getopt.getopt(sys.argv[1:],'hvi:u:l:',['help',
+                                                            'version',
+                                                            'iterations=',
+                                                            'unity=',
+                                                            'length='])
+    except getopt.GetoptError:
+        print('''menger.py [-h] [-v]
+menget.py [-i <iterations>] [-u <unity>] [-l <length>]''')
+        sys.exit(2)
+    for opt, arg in opts:
+        if opt in ('-h', '--help'):
+            print('''menger.py [-h] [-v]
+menget.py [-i <iterations>] [-u <unity>] [-l <length>]''')
+            sys.exit()
+        elif opt in ('-v', '--version'):
+            print ('py-menger ' + __version__ + '\n' +\
+                   __copyright__ + '\n' +\
+                   __license__)
+            sys.exit()
+        elif opt in ('-i', '--iterations'):
+            iterations = int(arg)
+        elif opt in ('-u', '--unity'):
+            unity = str(arg)
+        elif opt in ('-l', '--length'):
+            unity_length = int(arg)
+        
+    print_sponge(unity, iterations, unity_length)
